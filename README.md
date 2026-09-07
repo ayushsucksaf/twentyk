@@ -1,8 +1,8 @@
-# 2K
+# 20K
 
 A simple command-line time tracker for coding sessions, written in Rust.
 
-Press start, code, press `Ctrl+C` when you're done — 2K keeps a running countdown, autosaves your progress every minute so nothing's lost if your machine shuts down, and lets you check back on how much time you've clocked today, this week, and this month.
+Press start, code, press `Ctrl+C` when you're done — 20K keeps a running countdown, autosaves your progress every minute so nothing's lost if your machine shuts down, and lets you check back on how much time you've clocked today, this week, and this month.
 
 ## Features
 
@@ -24,7 +24,7 @@ cd twentyk
 cargo install --path .
 ```
 
-This builds the project in release mode and installs the `2k` command, making it available from anywhere in your terminal (as long as `~/.cargo/bin` is on your `PATH`, which it usually is if you installed Rust via `rustup`).
+This builds the project in release mode and installs the `20k` command, making it available from anywhere in your terminal (as long as `~/.cargo/bin` is on your `PATH`, which it usually is if you installed Rust via `rustup`).
 
 ## Usage
 
