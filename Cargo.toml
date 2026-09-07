@@ -3,6 +3,10 @@ name = "twentyk"
 version = "0.1.0"
 edition = "2024"
 
+[[bin]]
+name = "20k"
+path = "src/main.rs"
+
 [dependencies]
 ctrlc = "3.5.2"
 rusqlite = "0.40.2"
