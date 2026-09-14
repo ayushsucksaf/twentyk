@@ -1,5 +1,14 @@
+use std::path::PathBuf;
 use rusqlite::{params, Connection, Result};
 use chrono::{NaiveDate, Local, Days};
+use directories::ProjectDirs;
+
+fn get_db_path() -> PathBuf {
+    let proj_dirs = ProjectDirs::from("", "", "20k").expect("Couldn't get project dirs");
+    let data_dir = proj_dirs.data_dir();
+    std::fs::create_dir_all(data_dir).unwrap(); // ensure it exists
+    data_dir.join("time_storage.db")
+}
 
 pub fn get_todays_date() -> NaiveDate {
     // function returns today's date in NaiveDate
@@ -8,7 +17,7 @@ pub fn get_todays_date() -> NaiveDate {
 }
 pub fn connect_to_database()-> Result<Connection, String> {
     // function creates a connection to the database "time_storage.db"
-    let conn = match Connection::open("time_storage.db"){
+    let conn = match Connection::open(get_db_path()) {
         Ok(conn) => conn,
         Err(e) => return Err(e.to_string()),
     };
