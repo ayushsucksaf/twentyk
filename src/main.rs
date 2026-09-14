@@ -32,6 +32,7 @@ fn main() {
             }
             "stats" => {
                 stats_screen();
+                print_main_menu();
             }
             "exit" => {
                 break;
