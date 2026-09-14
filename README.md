@@ -52,6 +52,7 @@ You'll see a menu of available commands:
 - Every 60 seconds while a session is running, the elapsed time so far is saved to a local SQLite database (`time_storage.db`, created automatically on first run) — this is what protects you against losing an entire session if your laptop shuts down or crashes mid-session.
 - When you stop a session, the final elapsed time is recorded and printed.
 - Stats are calculated by summing recorded time from the database, filtered by date.
+- Note that your `time_storage.db` is located at `.local/share/20k/`
 
 ## Built with
 
