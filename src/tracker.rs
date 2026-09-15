@@ -28,6 +28,7 @@ pub fn sleep_and_run_countdown(running: Arc<AtomicBool>) {
     let start = Instant::now();
     let mut saved:u64 = 0;
     //using a saved variable to save the time for every minute
+    let mut seconds: u64 = 0;
 
     while running.load(Ordering::SeqCst) {
         // 1 second for the cli
@@ -35,7 +36,7 @@ pub fn sleep_and_run_countdown(running: Arc<AtomicBool>) {
         let elapsed = start.elapsed().as_secs();
         let hour = elapsed/3600;
         let minute = (elapsed % 3600) / 60;
-        let seconds = elapsed - hour * 3600 - minute * 60;
+        seconds = elapsed - hour * 3600 - minute * 60;
         print!("\rElapsed: {}hr : {}min : {}s", hour, minute, seconds);
         // checking when 60secs pass
         if elapsed - saved == 60{
@@ -43,6 +44,9 @@ pub fn sleep_and_run_countdown(running: Arc<AtomicBool>) {
             saved = elapsed;
         }
         io::stdout().flush().unwrap();
+    }
+    if (seconds != 0){
+        save_to_db(seconds);
     }
 }
 
