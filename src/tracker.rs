@@ -45,7 +45,7 @@ pub fn sleep_and_run_countdown(running: Arc<AtomicBool>) {
         }
         io::stdout().flush().unwrap();
     }
-    if (seconds != 0){
+    if seconds != 0{
         save_to_db(seconds);
     }
 }
